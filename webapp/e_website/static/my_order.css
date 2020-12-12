@@ -1,0 +1,36 @@
+.my_order_1{
+    position: relative;
+    width: 50%;
+    height: 475px;
+    box-shadow: -15px 0 35px rgba(8, 6, 6, 0.1);
+    transition: .10s;
+    margin-left:26%;
+}
+.my_order_btn{
+    width: 20%;
+    padding: 8px 10px;
+   font-size: 20px; 
+   margin-left: 42%;
+   border: 0px;
+   background-color: #c0cc17; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to top right, #e6d816  12%, #f14fb3);
+   color: #fff;
+   cursor: pointer;
+   border-radius: 20px;
+   outline: none;
+}
+.my_order_h1{
+    color: black;
+    font-size: 40px;
+    margin-left: 45%;
+    margin-bottom: 3%;
+}
+.my_order_3 p{
+    font-size: 25px;
+    color:rgb(14, 12, 12);
+    margin-left:20%;
+}
+.my_order_2 img{
+    margin-left:25%;
+    margin-top: 10%;
+}
