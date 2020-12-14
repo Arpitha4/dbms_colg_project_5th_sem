@@ -17,5 +17,13 @@ from django.contrib import admin
 from django.urls import path
 
 urlpatterns = [
+    url(r'^$',views.index,name='home'),
     path('admin/', admin.site.urls),
+    url(r'/logout',views.logout,name='logout'),
+    url(r'/login',views.login),
+    url(r'/home',views.home),
+    #url(r'^product_detail/(?P<id>\d+)/$',views.product_detail,name='product_details'),
 ]
+
+
+
