@@ -1,7 +1,7 @@
 from django.db import models
-from PIL import Image
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+#from PIL import Image
+#from imagekit.models import ImageSpecField
+#from imagekit.processors import ResizeToFill
 
 # Create your models here.
 
@@ -45,7 +45,7 @@ class order(models.Model):
 	bid=models.ForeignKey('buyer',on_delete=models.CASCADE,name='bid',null=False)
 	pid=models.ForeignKey('product',on_delete=models.CASCADE,name='pid')
 	sid=models.ForeignKey('seller',on_delete=models.CASCADE,name='sid')
-	#created_at = models.DateTimeField(auto_now_add=True)
+	created_at = models.DateTimeField(auto_now_add=True)
 	price=models.IntegerField()
 	quantity=models.IntegerField()
 	address=models.ForeignKey('address',on_delete=models.CASCADE)
@@ -62,3 +62,17 @@ class address(models.Model):
 	class Meta:
 		db_table="address"
 
+	
+
+# class product(models.Model):
+#     s_email = models.CharField(max_length=100)
+#     sid = models.ForeignKey('seller', on_delete=models.CASCADE)
+#     title = models.CharField(max_length=130, blank=True)
+#     description = models.TextField(blank=True)
+#     first_photo = models.ImageField(blank=True)
+#     seller_price = models.IntegerField(blank=True, default=0)
+#     price = models.IntegerField(blank=True, default=0)
+    
+    
+#     class Meta:
+#         db_table = "product"
