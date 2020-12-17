@@ -41,10 +41,10 @@ def home(request):
         if(user == 0):
             cursor.execute("insert into buyer values('" +
                            user_email+"','"+request.user.username+"','null')")
-        # products=product.objects.all()
-        # context={
-        #     'products':products
-        # }
+    #     products=product.objects.all()
+    #     context={
+    #         'products':products
+    #     }
     # else:
     #     products=product.objects.all()
     #     context={
