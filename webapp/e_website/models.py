@@ -62,17 +62,3 @@ class address(models.Model):
 	class Meta:
 		db_table="address"
 
-	
-
-# class product(models.Model):
-#     s_email = models.CharField(max_length=100)
-#     sid = models.ForeignKey('seller', on_delete=models.CASCADE)
-#     title = models.CharField(max_length=130, blank=True)
-#     description = models.TextField(blank=True)
-#     first_photo = models.ImageField(blank=True)
-#     seller_price = models.IntegerField(blank=True, default=0)
-#     price = models.IntegerField(blank=True, default=0)
-    
-    
-#     class Meta:
-#         db_table = "product"

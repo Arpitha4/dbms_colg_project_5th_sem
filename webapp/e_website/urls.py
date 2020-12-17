@@ -20,9 +20,10 @@ from . import views
 urlpatterns = [
     url(r'^$',views.home,name='home'),
     url('^oauth/', include('social_django.urls', namespace='social')),
-    url('^', include('django.contrib.auth.urls')),
+    #url('^', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-    url(r'logout',views.logout,name='logout'),
+    url(r'^sell$', views.sell,name='sell'),
+    url(r'^logout/$',views.logout_app,name='logout'),
     #url(r'/login',views.login),
     #url(r'/home',views.home),
     #url(r'^product_detail/(?P<id>\d+)/$',views.product_detail,name='product_details'),
