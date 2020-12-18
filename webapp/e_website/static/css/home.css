@@ -17,6 +17,7 @@ nav {
     font-size: 30px;
     letter-spacing: 0px;
     text-decoration: none;
+    font-family: "Times New Roman", Times, serif;
 }
 
 nav ul {
@@ -39,14 +40,27 @@ nav ul li:last-child {
 nav ul li a {
     display: inline-block;
     outline: none;
-    color: #000;
+    color: gray;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 18px;
     letter-spacing: 1.2px;
     font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
+nav ul li a :hover{
+    background: #e6d816 ; 
+    background: -moz-linear-gradient(45deg, #e6d816   0%, #f14fb3 25%, #f14fb3 50%, #e6d816 75%, #e6d816 100%); 
+    background: -webkit-linear-gradient(45deg, #e6d816   0%,#f14fb3 25%,#e6d816 50%,#000080 75%,#e6d816 100%); 
+    background: linear-gradient(45deg, #e6d816   0%,#e6d816 25%,#f14fb3 50%,#f14fb3 75%,#f14fb3 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    cursor: pointer;
+}
 @media screen and (max-width: 864px) {
     .logo {
           padding: 0;
@@ -284,8 +298,16 @@ nav ul li a {
   #hours > span, #address > span {
     font-size: 1.3em;
   }
+  #hours span{
+      font-size:30px;
+      font-family: serif;
+  }
+  #address span{
+      font-size:30px;
+      font-family: serif;
+  }
   #address p {
-    color: #557c3e;
+    color: #45742a;
     font-size: .8em;
     line-height: 1.8;
   }

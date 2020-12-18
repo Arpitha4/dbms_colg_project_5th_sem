@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^sell$', views.sell,name='sell'),
     url(r'^logout/$',views.logout_app,name='logout'),
+    url(r'^logout/$',views.logout_sell,name='logout'),
     #url(r'/login',views.login),
     #url(r'/home',views.home),
     #url(r'^product_detail/(?P<id>\d+)/$',views.product_detail,name='product_details'),
