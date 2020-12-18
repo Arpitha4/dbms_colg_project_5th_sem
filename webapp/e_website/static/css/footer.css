@@ -1,0 +1,38 @@
+
+/* FOOTER */
+.panel-footer {
+    margin-top: 0px;
+    padding-top: 35px;
+    padding-bottom: 30px;
+    background-color: gray;
+    border-top: 0;
+  }
+  .panel-footer div.row {
+    margin-bottom: 35px;
+  }
+  #hours, #address {
+    line-height: 2;
+  }
+  #hours > span, #address > span {
+    font-size: 1.3em;
+  }
+  #hours span{
+      font-size:30px;
+      font-family: serif;
+  }
+  #address span{
+      font-size:30px;
+      font-family: serif;
+  }
+  #address p {
+    color: #45742a;
+    font-size: .8em;
+    line-height: 1.8;
+  }
+  #testimonials {
+    font-style: italic;
+  }
+  #testimonials p:nth-child(2) {
+    margin-top: 25px;
+  }
+  /* END FOOTER */
