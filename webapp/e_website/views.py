@@ -28,6 +28,7 @@ def home(request):
 #start of products
 def product(request):
     if request.user.is_authenticated:
+        
         return render(request, 'product.html')
 #end of products
 
