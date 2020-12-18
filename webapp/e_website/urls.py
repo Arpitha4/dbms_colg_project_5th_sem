@@ -20,7 +20,7 @@ from . import views
 urlpatterns = [
     url(r'^$',views.home,name='home'),
     url('^oauth/', include('social_django.urls', namespace='social')),
-    url('^', include('django.contrib.auth.urls')),
+    #url('^', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     url(r'^logout/$',views.logout_app,name='logout'),
     #url(r'^product/(?P<id>\d+)/$', views.product, name='product'),

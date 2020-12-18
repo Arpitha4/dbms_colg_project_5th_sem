@@ -40,7 +40,7 @@ nav ul li:last-child {
 nav ul li a {
     display: inline-block;
     outline: none;
-    color: gray;
+    color: #000080;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 18px;
@@ -48,8 +48,8 @@ nav ul li a {
     font-weight: 600;
     font-family: Arial, Helvetica, sans-serif;
 }
-nav ul li a :hover{
-    background: #e6d816 ; 
+nav ul li a:hover{
+    background: #e6d816 ;
     background: -moz-linear-gradient(45deg, #e6d816   0%, #f14fb3 25%, #f14fb3 50%, #e6d816 75%, #e6d816 100%); 
     background: -webkit-linear-gradient(45deg, #e6d816   0%,#f14fb3 25%,#e6d816 50%,#000080 75%,#e6d816 100%); 
     background: linear-gradient(45deg, #e6d816   0%,#e6d816 25%,#f14fb3 50%,#f14fb3 75%,#f14fb3 100%); 

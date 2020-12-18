@@ -11,8 +11,8 @@
 	font-size: 45px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	margin-top: 25px;
 	font-family: merienda;
+	float: right;
 }
 .carousel-caption p {
 	width: 60%;
@@ -20,13 +20,15 @@
 	font-size: 18px;
 	line-height: 1.9;
 	font-family: poppins;
+	float: right;
 }
 .carousel-caption a {
 	text-transform: uppercase;
-	background: #262626;
+	background-color: #c0cc17; /* For browsers that do not support gradients */
+	background-image: linear-gradient(to top right, #e6d816  12%, #f14fb3);
+	 color: #fff;
 	padding: 10px 30px;
 	display: inline-block;
-	color: #fff;
 	margin-top: 15px;
 }
 .navbar-nav a {
@@ -79,3 +81,5 @@
 	}
 }
 /* CAROUSEL */
+
+
