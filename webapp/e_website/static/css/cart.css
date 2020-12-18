@@ -180,7 +180,7 @@ nav ul li a {
     display: none;
 }
 /* END HEADER */
-.my_order{
+.cart{
     background-color: rgb(14, 18, 70);
     margin-left:20%;
     margin-right: 20%;
@@ -191,7 +191,7 @@ nav ul li a {
     border-radius: 5%;
     padding-top:2%;
 }
-.my_order-1{
+.cart_1{
     position: relative;
     width: 50%;
     height: 475px;
@@ -201,7 +201,7 @@ nav ul li a {
     margin-left:26%;
     border-radius: 5%;
 }
-.my_order_btn{
+.cart_btn{
     width: 30%;
     padding: 10px 10px;
    font-size: 20px; 
@@ -215,24 +215,23 @@ nav ul li a {
    outline: none;
    text-align: center;
 }
-.my_order_h2{
+.cart_h2{
     text-align: center;
 }
-.my_order_h1{
+.cart_h1{
     color: black;
     font-size: 40px;
     margin-left: 45%;
     margin-bottom: 1%;
 }
-.my_order-3 p{
+.cart_3 p{
     font-size: 20px;
     color:rgb(14, 12, 12);
     margin-left: 6%;
 }
-.my_order-2 img{
-    width: 70%;
-    height: 2%;
-    margin-left:15%;
+.cart_2 img{
+    margin-left:25%;
+    margin-top: 10%;
 }
 
 
