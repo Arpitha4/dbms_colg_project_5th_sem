@@ -11,7 +11,7 @@ nav {
 }
 
 .logo a {
-    color: #000;
+    color: #000080;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 30px;
@@ -19,7 +19,19 @@ nav {
     text-decoration: none;
     font-family: "Times New Roman", Times, serif;
 }
-
+.logo a:hover{
+    background: #e6d816 ;
+    background: -moz-linear-gradient(45deg, #e6d816   0%, #f14fb3 25%, #f14fb3 50%, #e6d816 75%, #e6d816 100%); 
+    background: -webkit-linear-gradient(45deg, #e6d816   0%,#f14fb3 25%,#e6d816 50%,#000080 75%,#e6d816 100%); 
+    background: linear-gradient(45deg, #e6d816   0%,#e6d816 25%,#f14fb3 50%,#f14fb3 75%,#f14fb3 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    cursor: pointer;
+}
 nav ul {
     float: right;
 }
