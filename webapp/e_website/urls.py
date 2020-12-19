@@ -16,15 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-from . import views
+from webapp.views import *
+
 urlpatterns = [
-    url(r'^$',views.home,name='home'),
+    url(r'^$',home,name='home'),
     url('^oauth/', include('social_django.urls', namespace='social')),
-    #url('^', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
-    url(r'^logout/$',views.logout_app,name='logout'),
+    url(r'^logout/$',logout_app,name='logout'),
     #url(r'^product/(?P<id>\d+)/$', views.product, name='product'),
-    url(r'^product/$', views.product, name='product'),
+    url(r'^product/$', product, name='product'),
+    url(r'^orders/$', orders, name='orders'),
+    url(r'^cart/$', cart, name='cart'),
 ]
 
 

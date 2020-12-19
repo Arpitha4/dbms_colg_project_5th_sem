@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'e_website.apps.WebappConfig',
+    'webapp.apps.WebappConfig',
     'social.apps.django_app.default',
     'social_django',
 ]
