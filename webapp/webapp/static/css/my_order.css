@@ -1,13 +1,13 @@
 
 .my_order{
-    background-color: rgb(14, 18, 70);
+    background-color: rgb(133, 131, 131);
     margin-left:20%;
     margin-right: 20%;
     height: 550px;
     align-items: center;
     margin-top: 2%;
     margin-bottom:2%;
-    border-radius: 5%;
+    border-radius: 2%;
     padding-top:2%;
 }
 .my_order-1{
