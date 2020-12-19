@@ -56,12 +56,21 @@ def add_to_cart(request,id):
         total = 0
     # return render(request, 'cart.html')
         for row in cursor:
+<<<<<<< HEAD
     	    l={
     	        'id' : row[0],
     	        'quantity':row[1],
     	        'price' : row[2],
     	        'title' : row[3],
     	        'image':product.objects.get(id=row[0]).image
+=======
+    	    l=  {
+    	    'id' : row[0],
+    	    'quantity':row[1],
+    	    'price' : row[2],
+    	    'title' : row[3],
+    	    'image':product.objects.get(id=row[0]).image
+>>>>>>> 6532790974203d81aa7192362ce9c223c741d646
     	    }
     	    print(l["image"])
     	    total+=row[2]
@@ -69,9 +78,15 @@ def add_to_cart(request,id):
     	    items.append(l)
     	    s_total=total+120
     	    context={
+<<<<<<< HEAD
     	        'items':items,
     	        'total':total,
     	        'total_s':s_total
+=======
+    	    'items':items,
+    	    'total':total,
+    	    'total_s':s_total
+>>>>>>> 6532790974203d81aa7192362ce9c223c741d646
     	    }
         
 
