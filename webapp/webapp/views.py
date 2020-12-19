@@ -55,7 +55,7 @@ def add_to_cart(request,id):
         cart_items = []
         total = 0
     # return render(request, 'cart.html')
-          	for row in cursor:
+        for row in cursor:
     	    l={
     	        'id' : row[0],
     	        'quantity':row[1],
@@ -67,12 +67,12 @@ def add_to_cart(request,id):
     	    total+=row[2]
     	    print(row)
     	    items.append(l)
-    	s_total=total+120
-    	context={
-    	    'items':items,
-    	    'total':total,
-    	    'total_s':s_total
-    	}
+    	    s_total=total+120
+    	    context={
+    	        'items':items,
+    	        'total':total,
+    	        'total_s':s_total
+    	    }
         
 
         return render(request, 'cart.html', context)
