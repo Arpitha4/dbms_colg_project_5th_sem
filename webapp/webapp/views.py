@@ -39,6 +39,50 @@ def cart(request):
     return render(request, 'cart.html')
 # end of cart page
 
+# start of add to cart page
+def add_to_cart(request,id):
+    if request.user.is_authenticated:
+        user_email = request.user.email
+        cursor=connection.cursor()
+        query = "select * from buyer where b_email='"+user_email+"';"
+        user = len(list(buyer.objects.raw(query)))
+        cursor = connection.cursor()
+        if(user == 0):
+            cursor.execute("insert into buyer values('" +
+                           user_email+"','"+request.user.username+"','null')")
+        cursor.execute(
+            "select pid_id,quantity,price from cart where bid_id='"+user_email+"';")
+        cart_items = []
+        total = 0
+    # return render(request, 'cart.html')
+          	for row in cursor:
+    	    l={
+    	        'id' : row[0],
+    	        'quantity':row[1],
+    	        'price' : row[2],
+    	        'title' : row[3],
+    	        'image':product.objects.get(id=row[0]).image
+    	    }
+    	    print(l["image"])
+    	    total+=row[2]
+    	    print(row)
+    	    items.append(l)
+    	s_total=total+120
+    	context={
+    	    'items':items,
+    	    'total':total,
+    	    'total_s':s_total
+    	}
+        
+
+        return render(request, 'cart.html', context)
+    else:
+        return HttpResponseRedirect('/oauth/login/google-oauth2/?next=/cart')
+# end of add to cart page
+
+    
+
+# end of cart function
 # start of my_order page
 def orders(request):
     if request.user.is_authenticated:

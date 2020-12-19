@@ -11,7 +11,7 @@ nav {
 }
 
 .logo a {
-    color: #000080;
+    color: #233c53;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 30px;
@@ -52,7 +52,7 @@ nav ul li:last-child {
 nav ul li a {
     display: inline-block;
     outline: none;
-    color: #000080;
+    color: #233c53;
     text-transform: uppercase;
     text-decoration: none;
     font-size: 18px;
@@ -128,7 +128,7 @@ nav ul li a:hover{
     .nav-wrapper ul li a {
           padding: 10px 24px;
           opacity: 0;
-          color: #000;
+          color: #233c53;
           font-size: 14px;
           font-weight: 600;
           letter-spacing: 1.2px;
