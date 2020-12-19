@@ -16,7 +16,7 @@
 }
 .carousel-caption p {
 	width: 60%;
-	margin: auto;
+	margin-top: 5px;
 	font-size: 18px;
 	line-height: 1.9;
 	font-family: poppins;
@@ -29,8 +29,21 @@
 	 color: #fff;
 	padding: 10px 30px;
 	display: inline-block;
-	margin-top: 15px;
+	cursor: pointer;
+	outline: none;
+	text-align: center;
 }
+.carousel-caption a:hover{
+	background: #ffd658;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    cursor: pointer;
+	
+  }
 .navbar-nav a {
 	font-family: poppins;
 	font-size: 18px;

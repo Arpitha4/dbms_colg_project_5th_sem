@@ -4,7 +4,7 @@
     margin-top: 0px;
     padding-top: 35px;
     padding-bottom: 30px;
-    background-color: gray;
+    background-color: #010152;
     border-top: 0;
   }
   .panel-footer div.row {
@@ -12,6 +12,8 @@
   }
   #hours, #address {
     line-height: 2;
+    color: gray;
+    font-family: sans-serif;
   }
   #hours > span, #address > span {
     font-size: 1.3em;
@@ -19,13 +21,15 @@
   #hours span{
       font-size:30px;
       font-family: serif;
+      color: #fff;
   }
   #address span{
       font-size:30px;
       font-family: serif;
+      color:#fff;
   }
   #address p {
-    color: #45742a;
+    color: #e6d816;
     font-size: .8em;
     line-height: 1.8;
   }
@@ -34,5 +38,16 @@
   }
   #testimonials p:nth-child(2) {
     margin-top: 25px;
+  }
+  .text-center{
+    color: #fff;
+    font-family: serif;
+    font-size: 20px;
+  }
+  #testimonials{
+    color: gray;
+    font-family: sans-serif;
+    font-size: 15px;
+    margin-top: 20px;
   }
   /* END FOOTER */
