@@ -11,40 +11,37 @@
     </head>
     <body>
         {% include "header.html" %}
+        <br>
         <div class = "products">
             <div class = "container">
-                <!-- <h1 class = "lg-title">Special Shoes With Offers</h1>
-                <p class = "text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quos sit consectetur, ipsa voluptatem vitae necessitatibus dicta veniam, optio, possimus assumenda laudantium. Temporibus, quis cum.</p> -->
-
                 <div class = "product-items">
+                    {% for p in products %}
                     <!-- single product -->
                     <div class = "product">
                         <div class = "product-content">
                             <div class = "product-img">
-                                <!-- {% if product.image%} -->
-                                <img src = "{{product.product_1.jpg}}" alt = "product image">
-                                <!-- {% endif %} -->
+                                <img src = "{{p.image}}" alt = "product image">
                             </div>
                             <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> add to cart
+                                <button type = "button" class = "btn-cart"> <a href="/cartpage">add to cart</a>
                                     <span><i class = "fas fa-plus"></i></span>
                                 </button>
-                                <button type = "button" class = "btn-buy"> buy now
+                                <button type = "button" class = "btn-buy"> <a href="#">buy now</a>
                                     <span><i class = "fas fa-shopping-cart"></i></span>
                                 </button>
                             </div>
                         </div>
 
                         <div class = "product-info">
-                            <p>{{product.title}}</p>
-                            <p>{{product.description}}</p>
-                            <p>{{product.price}}</p>
+                            <p>{{p.title}}</p>
+                            <p>{{p.description}}</p>
+                            <p>{{p.price}}</p>
                         </div>
 
                         
                     </div>
                     <!-- end of single product -->
-                    
+                    {% endfor %}
                 </div>
             </div>
         </div>

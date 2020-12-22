@@ -6,11 +6,10 @@ from django.db import models
 # Create your models here.
 
 class product(models.Model):
-    #s_email = models.CharField(max_length=100)
-    sid = models.ForeignKey('seller',default=0, on_delete=models.CASCADE)
-    title = models.CharField(max_length=130, blank=True)
+    sid = models.ForeignKey('seller', on_delete=models.CASCADE,null=False)
+    title = models.CharField(max_length=100, blank=True)
     description = models.TextField(blank=True)
-    image = models.ImageField(blank=True)
+    image = models.ImageField(upload_to='product_image', blank=True)
     price = models.IntegerField(blank=True, default=0)
     #stock = models.IntegerField()
     #  0 -- inactive   1 -- active

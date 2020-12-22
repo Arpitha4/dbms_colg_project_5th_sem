@@ -17,16 +17,23 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from webapp.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$',home,name='home'),
     url('^oauth/', include('social_django.urls', namespace='social')),
     path('admin/', admin.site.urls),
     url(r'^logout/$',logout_app,name='logout'),
-    #url(r'^product/(?P<id>\d+)/$', views.product, name='product'),
-    url(r'^product/$', product, name='product'),
+    url(r'^products/$', all_products, name='all_products'),
+    # url(r'^product/(?P<id>\d+)/$', product, name='product'),
+    # url(r'^product/$', product, name='product'),
     url(r'^orders/$', orders, name='orders'),
     url(r'^cart/$', cart, name='cart'),
-]
+    #url(r'^buyer_tq/$', buyer_tq, name='buyer_tq'),
+    url(r'^cartpage/$', cartpage, name='cartpage'),
+    #url(r'^address_form/$', address_form, name='address_form'),
+    #url(r'^receipt/$', receipt, name='receipt'),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
