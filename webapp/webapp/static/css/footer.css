@@ -1,0 +1,53 @@
+
+/* FOOTER */
+.panel-footer {
+    margin-top: 0px;
+    padding-top: 35px;
+    padding-bottom: 30px;
+    background-color: #233c53;
+    border-top: 0;
+  }
+  .panel-footer div.row {
+    margin-bottom: 35px;
+  }
+  #hours, #address {
+    line-height: 2;
+    color: gray;
+    font-family: sans-serif;
+  }
+  #hours > span, #address > span {
+    font-size: 1.3em;
+  }
+  #hours span{
+      font-size:30px;
+      font-family: serif;
+      color: #fff;
+  }
+  #address span{
+      font-size:30px;
+      font-family: serif;
+      color:#fff;
+  }
+  #address p {
+    color: #e6d816;
+    font-size: .8em;
+    line-height: 1.8;
+  }
+  #testimonials {
+    font-style: italic;
+  }
+  #testimonials p:nth-child(2) {
+    margin-top: 25px;
+  }
+  .text-center{
+    color: #fff;
+    font-family: serif;
+    font-size: 20px;
+  }
+  #testimonials{
+    color: gray;
+    font-family: sans-serif;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  /* END FOOTER */

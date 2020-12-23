@@ -27,13 +27,13 @@ urlpatterns = [
     url(r'^logout/$',logout_app,name='logout'),
     url(r'^products/$', all_products, name='all_products'),
     # url(r'^product/(?P<id>\d+)/$', product, name='product'),
-    # url(r'^product/$', product, name='product'),
     url(r'^orders/$', orders, name='orders'),
     url(r'^cart/$', cart, name='cart'),
     #url(r'^buyer_tq/$', buyer_tq, name='buyer_tq'),
     url(r'^cartpage/$', cartpage, name='cartpage'),
-    #url(r'^address_form/$', address_form, name='address_form'),
+    url(r'^address_form/$', address_form, name='address_form'),
     #url(r'^receipt/$', receipt, name='receipt'),
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
 
 
