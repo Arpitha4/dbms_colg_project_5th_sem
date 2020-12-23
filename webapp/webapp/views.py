@@ -34,7 +34,6 @@ def home(request):
 # start of all products
 def all_products(request):
     products = product.objects.all()
-    #products=product.objects.get(id=id)
     cursor = connection.cursor()
     print(products)
     context={
@@ -43,7 +42,7 @@ def all_products(request):
     return render(request,"product.html",context)
 
 # end of all products 
-
+       
 # start of adding products to cart
 # def add_to_cart(request,id):
 #     if request.user.is_authenticated:
@@ -59,18 +58,16 @@ def all_products(request):
 #         return HttpResponseRedirect('/oauth/login/google-oauth2')  
 # end of adding products to cart
 
-# start of cart page
+# start of cart page - the empty one
 def cart(request):
-    # if request.user.is_authenticated:
-        # user_email = request.user.email
     return render(request, 'cart.html')
 # end of cart page
 
-# start of cart page
+# start of cart page with products
 def cartpage(request):
-    if request.user.is_authenticated:
+    # if request.user.is_authenticated:
         # user_email = request.user.email
-        return render(request, 'cartpage.html')
+    return render(request, 'cartpage.html')
 # end of cart page
 
 # start of my_order page
