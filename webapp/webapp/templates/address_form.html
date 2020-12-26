@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Registration Form</title>
-	<link rel="stylesheet" href="/static/css/address_form.css">
+  <link rel="stylesheet" href="/static/css/address_form.css">
 </head>
 <body>
   <div class="wrapper">
@@ -18,26 +18,26 @@
       <div class="top-form">
         <div class="inner-form">
           <div class="label">name</div>
-          <input type="text" placeholder="Jhon">
+          <input type="text" placeholder="Jhon" required>
         </div>
-        <div class="inner-form">
+        <!-- <div class="inner-form">
           <div class="label">email</div>
           <input type="text" placeholder="Example@gmail.com">
-        </div>
+        </div> -->
         <div class="inner-form">
           <div class="label">phone</div>
-          <input type="text" placeholder="1234567890">
+          <input type="text" placeholder="whatsapp number please - 1234567890" required>
         </div>
       </div>
   
       <div class="middle-form">
         <div class="inner-form">
-          <div class="label">Address</div>
-          <input type="text" placeholder="Add Address with state, city and pincode">
+          <div class="label" >Address</div>
+          <input type="text" placeholder="Add Address with state, city and pincode" required>
         </div>
       </div>
 
-      <div class="btn">Checkout</div>
+      <a href="/buyer_tq"> <button class="address_form-btn" required >Checkout</button> </a>
   
     </div>
   </div>

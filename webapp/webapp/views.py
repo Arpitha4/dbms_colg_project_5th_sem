@@ -84,7 +84,7 @@ def cartpage(request):
         cursor = connection.cursor()
         if(user == 0):
             cursor.execute("insert into buyer values('" + user_email+"','"+request.user.username+"','null')")
-        # cursor.execute( "select pid_id, price from cart where bid_id='"+user_email+"';")
+        # cursor.execute( "select pid_id,quantity, price from cart where bid_id='"+user_email+"';")
         
         total = 0
         cursor = cart.objects.filter(bid = request.user.email)
@@ -92,8 +92,10 @@ def cartpage(request):
             print(row)
             # products=product.objects.get(id=row[0])
             l={
+                'id':row.pid.id,
                 'title':row.pid.title,
-                'price':row.pid.price
+                # 'quantity': row[1],
+                'price':row.pid.price,
             }
             total += row.pid.price
             cart_items.append(l)
@@ -101,6 +103,7 @@ def cartpage(request):
         print(len(cart_items))
         context= {
             'cart_items':cart_items,
+            'total':total
         }
         if(len(cart_items)==0):
             return render(request, 'cart.html') 
@@ -112,14 +115,52 @@ def cartpage(request):
         return render(request, 'cart.html') 
 # end of cart page
 
+# start of remove cart function
+def remove_cart(request, id):
+    user_email = request.user.email
+    cursor = connection.cursor()
+    cursor.execute("delete from cart where bid_id='" + user_email+"' and pid_id="+str(id)+";")
+    response = redirect('/cartpage')
+    return response
+# end of remove cart function
+
+
 # start of my_order page
 def orders(request):
-    if request.user.is_authenticated:
-        user_email = request.user.email
-        return render(request, 'orders.html')
+    # if request.user.is_authenticated:
+    #     user_email = request.user.email
+    return render(request, 'orders.html')
 # end of cart page
 
 # start of address_form
 def address_form(request):
     return render(request,'address_form.html')
 # end of address_form
+
+# start of adding address
+def add_address(request):
+    if request.user.is_authenticated:
+        user_email = request.user.email
+        print(request.POST)
+        address1 = address(
+            bid=buyer.objects.get(b_email=user_email),
+            phno=request.POST['phno'],
+            name=request.POST['fullname'],
+            address=request.POST['address'],
+            
+        )
+        address1.save()
+
+        buyer1 = buyer(
+            phno=request.POST['phone'],
+            name=request.POST['fullname'],
+        )
+        buyer1.save()
+        # cursor.execute("insert into address values('" + user_email+"','"+request.user.username+"','null')")
+        return redirect('/buyer_tq')
+# end of adding address
+
+# start of thank you page
+def buyer_tq(request):
+    return render(request,'buyer_tq.html')
+# end of thank you page

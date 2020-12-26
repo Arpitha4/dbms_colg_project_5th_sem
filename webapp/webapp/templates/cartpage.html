@@ -3,11 +3,21 @@
     <head>
         <title></title>
         <meta name="description" content="This is the description">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+      
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
         <link rel="stylesheet" href="/static/css/cartpage.css" />
     </head>
     <body>
         <div class="cartpage-1">
-        <h2> YourbCart Items</h2>
+        <h2> Your Cart Items</h2>
 
         <table>
           
@@ -19,8 +29,19 @@
           <tr>
             <th>{{i.title}}</th>
             <th>{{i.price}}</th>
+            <th class="text-left">
+              <a href="/remove_cart/{{i.id}}">
+                <button class="btn btn-sm btn-danger">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </a>
+            </th>
           </tr>
           {% endfor %}
+          <tr>
+          <th>Total</th>          
+          <th>{{total}}</th>
+          </tr>
         </table>
         <a href="/address_form"> <button class="cartpage-btn" >Add Address</button> </a>
         </div>
