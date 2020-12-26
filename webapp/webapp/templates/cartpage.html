@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="cartpage-1">
-        <h2>Cart Items</h2>
+        <h2> YourbCart Items</h2>
 
         <table>
           
@@ -15,8 +15,12 @@
             <th>Product</th>
             <th>Price</th>
           </tr>
-
-
+          {% for i in cart_items %}
+          <tr>
+            <th>{{i.title}}</th>
+            <th>{{i.price}}</th>
+          </tr>
+          {% endfor %}
         </table>
         <a href="/address_form"> <button class="cartpage-btn" >Add Address</button> </a>
         </div>

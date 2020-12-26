@@ -24,7 +24,7 @@
                                 <img src = "{{p.image.url}}" alt = "product image">
                             </div>
                             <div class = "product-btns">
-                                <button type = "button" class = "btn-cart"> <a href="/products">add to cart</a>
+                                <button type = "button" class = "btn-cart"> <a href="/add_to_cart{{p.getabsoluteurl}}">add to cart</a>
                                     <span><i class = "fas fa-plus"></i></span>
                                 </button>
                                 
@@ -35,7 +35,7 @@
                           
                             <p>{{p.title}}</p>
                             <p>{{p.description}}</p>
-                            <p>{{p.price}}</p>
+                            <p>Rs.{{p.price}}</p>
                         </div>
 
                         

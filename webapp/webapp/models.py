@@ -11,15 +11,16 @@ class product(models.Model):
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='product_image', blank=True)
     price = models.IntegerField(blank=True, default=0)
-    
-    # def getabsoluteurl(self):
-	#     return "/product/%i/" % self.id
+       
 
-    # class Meta:
-    #     db_table = "product"
+    class Meta:
+        db_table = "product"
 
-    # def __str__(self):
-	#     return self.title
+    def getabsoluteurl(self):
+	    return "/product/%i/" % self.id    
+
+    def __str__(self):
+	    return self.title 
 
 class seller(models.Model):
     s_email = models.ForeignKey('buyer', on_delete=models.CASCADE)

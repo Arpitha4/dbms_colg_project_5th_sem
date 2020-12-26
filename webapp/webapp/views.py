@@ -33,41 +33,83 @@ def home(request):
         
 # start of all products
 def all_products(request):
-    products = product.objects.all()
-    cursor = connection.cursor()
-    print(products)
-    context={
-        "products":products,
-    }
-    return render(request,"product.html",context)
-
+    if request.user.is_authenticated:
+        products = product.objects.all()
+        cursor = connection.cursor()
+        # print(products)
+        context={
+            "products":products,
+        }
+        return render(request,"product.html",context)
+    else:
+        return HttpResponseRedirect('/oauth/login/google-oauth2') 
 # end of all products 
-       
-# start of adding products to cart
-# def add_to_cart(request,id):
-#     if request.user.is_authenticated:
-#         user_email = request.user.email
-#         products = product.objects.get(id=id)
-#         cursor = connection.cursor()
-#         p_id = str(product_now.id)
-#         query = "select * from cart where bid_id='"+user_email+"' and pid_id="+p_id
-#         c = len(list(cart.objects.raw(query)))
-#         if(c == 0):
-#             bid = buyer.objects.get(b_email=request.user.email)
-#     else:
-#         return HttpResponseRedirect('/oauth/login/google-oauth2')  
-# end of adding products to cart
 
-# start of cart page - the empty one
-def cart(request):
-    return render(request, 'cart.html')
-# end of cart page
+# start of add_to _cart in db
+def add_to_cart(request, id):
+    if request.user.is_authenticated:
+        products = product.objects.get(id=id)
+        cursor = connection.cursor()
+        user_email = request.user.email
+        p_id = str(products.id)
+        query = "select * from cart where bid_id='"+user_email+"' and pid_id="+p_id
+        c = len(list(cart.objects.raw(query)))
+        if(c == 0):
+            bid = buyer.objects.get(b_email=request.user.email)
+            added = cart(pid=products, bid=bid,price=products.price, sid=products.sid, quantity=1)
+            added.save()
+            # cursor.callproc("add_to_cart",[product_now.id,user_email,product_now.price,product_now.s_id_id])
+        else:
+            # print("enters else")
+            cursor.execute("update cart set quantity=quantity+1 where pid_id=" + p_id+" and bid_id='"+user_email+"';")
+            cursor.execute("update cart set price="+str(products.price) + "*quantity where pid_id="+p_id+" and bid_id='"+user_email+"';")
 
-# start of cart page with products
+        return HttpResponseRedirect('/products')
+    else:
+        # print('enterd else')
+        return HttpResponseRedirect('/oauth/login/google-oauth2/?next=/add_to_cart/product/'+id)
+# end of add_to_cart
+
+# start of cart page with products from db
 def cartpage(request):
-    # if request.user.is_authenticated:
-        # user_email = request.user.email
-    return render(request, 'cartpage.html')
+    cart_items = []
+    if request.user.is_authenticated:
+        user_email = request.user.email
+        # products = product.objects.get(id=id)
+        cursor = connection.cursor()
+        # p_id = str(products.id)
+        # query = "select * from cart where bid_id='"+user_email+"' and pid_id="+p_id
+        query = "select * from buyer where b_email='"+user_email+"';"
+        user = len(list(buyer.objects.raw(query)))
+        cursor = connection.cursor()
+        if(user == 0):
+            cursor.execute("insert into buyer values('" + user_email+"','"+request.user.username+"','null')")
+        # cursor.execute( "select pid_id, price from cart where bid_id='"+user_email+"';")
+        
+        total = 0
+        cursor = cart.objects.filter(bid = request.user.email)
+        for row in cursor:
+            print(row)
+            # products=product.objects.get(id=row[0])
+            l={
+                'title':row.pid.title,
+                'price':row.pid.price
+            }
+            total += row.pid.price
+            cart_items.append(l)
+        print(total)    
+        print(len(cart_items))
+        context= {
+            'cart_items':cart_items,
+        }
+        if(len(cart_items)==0):
+            return render(request, 'cart.html') 
+        else:    
+            return render(request, 'cartpage.html',context)
+    else:
+        if(len(cart_items)==0):
+            return render(request, 'cart.html') 
+        return render(request, 'cart.html') 
 # end of cart page
 
 # start of my_order page
@@ -80,3 +122,4 @@ def orders(request):
 # start of address_form
 def address_form(request):
     return render(request,'address_form.html')
+# end of address_form
