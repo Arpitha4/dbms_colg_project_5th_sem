@@ -144,16 +144,16 @@ def add_address(request):
         print(request.POST)
         address1 = address(
             bid=buyer.objects.get(b_email=user_email),
-            phno=request.POST['phno'],
-            name=request.POST['fullname'],
+            phno=request.POST['phone'],
+            name=request.POST['name'],
             address=request.POST['address'],
             
         )
         address1.save()
 
         buyer1 = buyer(
-            phno=request.POST['phone'],
-            name=request.POST['fullname'],
+            b_phno=request.POST['phone'],
+            b_name=request.POST['name'],
         )
         buyer1.save()
         # cursor.execute("insert into address values('" + user_email+"','"+request.user.username+"','null')")

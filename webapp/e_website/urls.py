@@ -29,6 +29,7 @@ urlpatterns = [
     # url(r'^product/(?P<id>\d+)/$', product, name='product'),
     url(r'^add_to_cart/product/(?P<id>\d+)/$', add_to_cart, name='add_to_cart'),
     url(r'^remove_cart/(?P<id>\d+)', remove_cart, name='remove_cart'),
+    url(r'^add_address/$', add_address, name='add_address'),
     url(r'^orders/$', orders, name='orders'),
     # url(r'^cart/$', cart_empty, name='cart_empty'),
     url(r'^buyer_tq/$', buyer_tq, name='buyer_tq'),
