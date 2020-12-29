@@ -2,7 +2,10 @@ from django.db import models
 #from PIL import Image
 #from imagekit.models import ImageSpecField
 #from imagekit.processors import ResizeToFill
-
+from django.utils import timezone
+from datetime import date
+import datetime
+from datetime import datetime
 # Create your models here.
 
 class product(models.Model):
@@ -55,16 +58,17 @@ class cart(models.Model):
 
 
 class orders(models.Model):
-    oid = models.CharField(editable=False, max_length=128)
+    # oid = models.CharField(editable=False, max_length=128)
     bid = models.ForeignKey('buyer', on_delete=models.CASCADE)
     pid = models.ForeignKey('product', on_delete=models.CASCADE)
     sid = models.ForeignKey('seller', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(default=datetime.today())
     price = models.IntegerField()
-    quantity = models.IntegerField()
+    # quantity = models.IntegerField()
     address = models.ForeignKey('address', on_delete=models.CASCADE)
     
     class Meta:
-        unique_together = ('bid', 'pid', 'sid')
+        unique_together = ('bid', 'pid', 'sid','created_at')
         db_table = "orders"
 
 

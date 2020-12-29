@@ -30,12 +30,12 @@ urlpatterns = [
     url(r'^add_to_cart/product/(?P<id>\d+)/$', add_to_cart, name='add_to_cart'),
     url(r'^remove_cart/(?P<id>\d+)', remove_cart, name='remove_cart'),
     url(r'^add_address/$', add_address, name='add_address'),
-    url(r'^orders/$', orders, name='orders'),
+    url(r'^my_orders/$', my_orders, name='my_orders'),
     # url(r'^cart/$', cart_empty, name='cart_empty'),
     url(r'^buyer_tq/$', buyer_tq, name='buyer_tq'),
     url(r'^cartpage/$', cartpage, name='cartpage'),
     url(r'^address_form/$', address_form, name='address_form'),
-    #url(r'^receipt/$', receipt, name='receipt'),
+    url(r'^receipt/$', receipt, name='receipt'),
     ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     
 

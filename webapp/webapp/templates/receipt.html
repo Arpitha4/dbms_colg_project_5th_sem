@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Receipt</title>
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" rel="stylesheet">
+      <link rel="stylesheet" href="/static/css/receipt.css">
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1>Shopping Receipt </h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for i in items %}
+            <div class="col-md-6 col-md-offset-3 body-main">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4"> <img class="img" alt="Invoce Template" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK3fl4GMu98cj63scAm9yYPFWvbaPBoaMxCw&usqp=CAU" /> </div>
+                        <div class="col-md-8 text-right">
+                            <h4 style="color: #233c53;"><strong>{{i.address.name}}</strong></h4>
+                            <p>{{i.address.address}}</p>
+                            <p>{{i.address.phno}}</p>
+                        </div>
+                    </div> <br />
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2><strong>Shoppy</strong></h2><br>
+                            <h5>Here is your bill!</h5>
+                        </div>
+                    </div> <br />
+                    <div> 
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <h5>Product</h5>
+                                    </th>
+                                    <th>
+                                        <h5>Amount</h5>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr>
+                                    <td class="col-md-9">{{i.pid.title}}</td>
+                                    <td class="col-md-3"><i class="fas fa-rupee-sign" area-hidden="true"></i> {{i.pid.price}} </td>
+                                </tr>
+                                
+                                <tr style="color:  #233c53;">
+                                    <td class="text-right">
+                                        <h4><strong>Total:</strong></h4>
+                                    </td>
+                                    <td class="text-left">
+                                        <h4><strong><i class="fas fa-rupee-sign" area-hidden="true"></i> {{i.price}} </strong></h4>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <div class="col-md-12">
+                            <p><b>Date :</b>{{i.created_at}}</p> <br />
+                            <p><b>Signature:</b>Shoppyyyyy/-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- <button class="receipt_btn">Confirm</button> -->
+</div>
+</body>
+</html>

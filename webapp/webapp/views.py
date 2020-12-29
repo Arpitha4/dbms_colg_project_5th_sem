@@ -4,11 +4,12 @@ import requests
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-import datetime
+from datetime import date, time
 from .models import *
 from django.contrib.auth import logout
 from django.db import connection
 from django.shortcuts import render, redirect,get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 # start of logout
@@ -124,14 +125,6 @@ def remove_cart(request, id):
     return response
 # end of remove cart function
 
-
-# start of my_order page
-def orders(request):
-    # if request.user.is_authenticated:
-    #     user_email = request.user.email
-    return render(request, 'orders.html')
-# end of cart page
-
 # start of address_form
 def address_form(request):
     return render(request,'address_form.html')
@@ -140,7 +133,7 @@ def address_form(request):
 # start of adding address
 def add_address(request):
     if request.user.is_authenticated:
-        user_email = request.user.email
+        user_email = request.user.email #address is been created in db
         print(request.POST)
         address1 = address(
             bid=buyer.objects.get(b_email=user_email),
@@ -156,9 +149,63 @@ def add_address(request):
             b_name=request.POST['name'],
         )
         buyer1.save()
+
+        items = cart.objects.raw("select * from cart where bid_id='"+request.user.email+"'") #orders are created in db
+        cursor=connection.cursor()
+        # if(len(list(address.objects.raw("select * from address where bid_id='"+request.user.email+"'")))):
+        # details = address.objects.raw("select id from address where bid_id='"+request.user.email+"'")
+        details = address1
+        # cursor.execute("select id from address where bid_id='"+request.user.email+"'")
+        # for d in details:
+        #     id1=d.id
+        for i in items:
+            order1 = orders(
+                bid= i.bid,
+                pid = i.pid,
+                sid = i.sid,
+                price = i.price,
+                address = details
+            )
+
+            order1.save()
+            # cursor.execute("insert into orders(bid_id,pid_id,sid_id,price,address_id) values(''"+i.bid_id+"',"+
+            # str(i.pid_id)+","+str(i.sid_id)+","+str(i.price)+", "+str(details.id)+") ")
         # cursor.execute("insert into address values('" + user_email+"','"+request.user.username+"','null')")
         return redirect('/buyer_tq')
 # end of adding address
+
+# start of my_order page
+def my_orders(request):
+    if request.user.is_authenticated:
+        user_email = request.user.email
+        # cursor=connection.cursor()
+        # cursor.execute("select * pid_id,price,address from orders where bid_id='"+user_email+"';") 
+        items = orders.objects.filter(bid = user_email)
+        context={
+    	    # 'id': id,
+            # 'title': title,
+            # 'price': price,
+            # 'address': address,
+            'items':items,
+            # 'phno':phone
+    	}
+        # my_orders.save()
+        
+
+        if(len(items)==0):
+            return render(request, 'orders.html')
+        else:
+            return render(request,'receipt.html',context)
+    else:
+        # if(len(items)==0):
+        #     return render(request, 'orders.html') 
+        return HttpResponseRedirect('/oauth/login/google-oauth2')
+# end of my_order page
+
+# start of receipt
+def receipt(request):
+    return render(request,'receipt.html') 
+# end of address_form
 
 # start of thank you page
 def buyer_tq(request):
