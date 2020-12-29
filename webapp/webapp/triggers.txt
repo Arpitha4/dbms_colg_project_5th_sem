@@ -1,0 +1,15 @@
+create trigger my_trigger
+AFTER INSERT
+ON orders
+FOR EACH ROW 
+CALL empty_cart(NEW.bid_id);
+                                     
+create procedure empty_cart(bid varchar(100))
+delete from cart where bid_id=bid;
+
+
+
+
+
+    
+    
