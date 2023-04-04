@@ -1,1 +1,1 @@
-# dbms_colg_project_5th_sem
+# django_project
